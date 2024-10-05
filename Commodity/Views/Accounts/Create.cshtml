@@ -1,0 +1,107 @@
+﻿@model Commodity.Models.Account
+
+@{
+    ViewData["Title"] = "Create Account";
+}
+<link href="~/css/styleCom.css" rel="stylesheet">
+<hr />
+<div class="overlay">
+    <div class="container create">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Create Account</h4>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="FullName" class="form-control" id="floatingText" />
+                                        <label for="floatingText">Full Name</label>
+                                        <span asp-validation-for="FullName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-floating">
+                                    <select asp-for="Gender" class="form-control" id="floatingSelect">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                          
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="Email" class="form-control" id="floatingAddress" />
+                                        <label class="control-label" for="floatingAddress">Email</label>
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="Phone" class="form-control" id="floatingAddress" />
+                                        <label class="control-label" for="floatingAddress">Phone</label>
+                                        <span asp-validation-for="Phone" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="Password" class="form-control pr-5" id="floatingPassword" type="password" />
+                                        <label for="floatingPassword">Password</label>
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                        <i class="toggle-password fas fa-eye-slash position-absolute end-0 top-50 translate-middle-y" data-target="floatingPassword"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="Birth" class="form-control" id="floatingAddress" />
+                                        <label class="control-label" for="floatingAddress">Birth</label>
+                                        <span asp-validation-for="Birth" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="ConfirmPassword" class="form-control" id="floatingConfirmPassword" type="password" />
+                                        <label for="floatingConfirmPassword">Confirm Password</label>
+                                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                        <i class="toggle-password fas fa-eye-slash position-absolute end-0 top-50 translate-middle-y" data-target="floatingConfirmPassword"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="Address" class="form-control" id="floatingAddress" />
+                                        <label class="control-label" for="floatingAddress">Address</label>
+                                        <span asp-validation-for="Address" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas"></i> Create Account
+                                </button>
+                            </div>
+                        </form>
+                        <p></p>
+                        <p class="text-center mb-0">Do you already have an account? <a asp-action="SignIn">Sign In</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<script src="~/js/togglePassword.js"></script>

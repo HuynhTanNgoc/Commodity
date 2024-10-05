@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Commodity.Models.Account>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link href="~/css/styleCom.css" rel="stylesheet">
+
+<div class="container-fluid bg-light p-3 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 text-center">
+            <h1 class="display-4 text-primary">Account</h1>
+        </div>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.FullName)</th>
+                <th>@Html.DisplayNameFor(model => model.Gender)</th>
+                <th>@Html.DisplayNameFor(model => model.Phone)</th>
+                <th>@Html.DisplayNameFor(model => model.Birth)</th>
+                <th>@Html.DisplayNameFor(model => model.Address)</th>
+                <th>@Html.DisplayNameFor(model => model.LastLogin)</th>
+                <th>@Html.DisplayNameFor(model => model.CreateDate)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Gender)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Phone)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Birth)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                    <td>@Html.DisplayFor(modelItem => item.LastLogin)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CreateDate)</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.AccountID">
+                            <i class="fas fa-eye"> </i>
+                        </a>@*  |
+                        <a asp-action="Delete" asp-route-id="@item.AccountID">
+                            <i class="fas fa-trash-alt"></i>
+                        </a> *@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

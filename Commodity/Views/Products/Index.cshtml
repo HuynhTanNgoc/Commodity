@@ -1,0 +1,80 @@
+﻿@model Commodity.Models.ProductIndexViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link href="~/css/styleCom.css" rel="stylesheet">
+
+<div class="container-fluid bg-light p-3 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 text-center">
+            <h1 class="display-4 text-primary">Product</h1>
+        </div>
+    </div>
+</div>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add Product</a>
+</p>
+
+<p>
+    <a asp-controller="ProductCategories" asp-action="Index" class="btn btn-warning">List Category</a>
+</p>
+
+<form asp-controller="Products" asp-action="Index" method="get">
+    <p>
+        <select asp-for="ProductCategory" asp-items="@Model.ProductCategories">
+            <option value="">All</option>
+        </select>
+        <input type="text" name="SearchString" placeholder="Enter Product Name" />
+        <input type="submit" value="Seach" />
+    </p>
+</form>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Products.FirstOrDefault().ProductId)</th>
+                <th>@Html.DisplayNameFor(model => model.Products.FirstOrDefault().Name)</th>
+                <th>Product Category</th>
+                <th>Supplier</th>
+                <th>@Html.DisplayNameFor(model => model.Products.FirstOrDefault().Price)</th>
+                <th>@Html.DisplayNameFor(model => model.Products.FirstOrDefault().QuantityInStock)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @foreach (var item in Model.Products)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.ProductId)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ProductCategory.ProductCategoryName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Supplier.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                        <td>@Html.DisplayFor(modelItem => item.QuantityInStock)</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ProductId">
+                                <i class="fas fa-edit"></i>
+                            </a> |
+                            <a asp-action="Delete" asp-route-id="@item.ProductId">
+                                <i class="fas fa-trash-alt"></i> 
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="6">No data available</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,107 @@
+﻿body {
+    padding-top: 20px;
+    margin-left: 280px;
+    background-color: #17a2b8;
+    color: black;
+}
+
+.sidebar {
+    width: 200px;
+}
+
+.sticky-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+}
+
+.sidebar .navbar .dropdown-toggle::after {
+    position: absolute;
+    top: 15px;
+    right: 5px;
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: .5s;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+
+table {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 1rem;
+    vertical-align: top;
+    border-color: var(--bs-table-border-color);
+    caption-side: bottom;
+    border-collapse: collapse;
+    font-family: var(--bs-body-font-family);
+}
+
+.table th,
+.table td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.table th {
+    background-color: #0cb2db;
+    color: aliceblue;
+}
+
+.table td {
+    background-color: #fafafa;
+    color: black;
+}
+
+input[readonly] {
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: not-allowed;
+}
+
+h4 {
+    color: red;
+}
+
+.toggle-password {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.create {
+    padding-top: 250px;
+}
+
+.create h4
+{
+    padding-top: 20px;
+}
+
+.signin{
+
+    margin-top: 50px;
+}
+
+.overlay
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 999;
+}
+
+
+

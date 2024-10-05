@@ -1,0 +1,61 @@
+﻿@model Commodity.Models.Account
+
+@{
+    ViewData["Title"] = "SignIn";
+}
+
+<link href="~/css/styleCom.css" rel="stylesheet">
+<hr />
+<div class="overlay">
+    <div class="container create">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Sign In</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <form asp-action="SignIn">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="row justify-content-center signin">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="Email" class="form-control" id="floatingAddress" />
+                                        <label class="control-label" for="floatingAddress">Email</label>
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="Password" class="form-control pr-5" id="floatingPassword" type="password" />
+                                        <label for="floatingPassword">Password</label>
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                        <i class="toggle-password fas fa-eye-slash position-absolute end-0 top-50 translate-middle-y" data-target="floatingPassword"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas"></i>
+                                    Sign In
+                                </button>
+                            </div>
+                        </form>
+                        <p></p>
+                        <p class="text-center mb-0">Create a new account?  <a asp-action="Create">Sign Up</a></a></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<script src="~/js/togglePassword.js"></script>
